@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [UserController::class, 'index']);
+Route::post('/import-users', [UserController::class, 'import_users'])->name('import_users');
+Route::get('/export-users', [UserController::class, 'export_users'])->name('export-users');
+
+Route::get('/export_users_pdf', [UserController::class, 'exportUsers'])->name('export-users');
+
 /*Route::get('/', function () {
     return view('users');
 });

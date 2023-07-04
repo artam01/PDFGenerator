@@ -9,9 +9,16 @@
     <h1>Users</h1>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <div>
-        <button class="button">Generate PDF</button>
+
+        /* <a href="{{ route('export_users') }}">Export Excel</a>*/
+        <a href="{{ route('export_users_pdf') }}" class="btn btn-primary">Export PDF</a>
+        <form action="{{ route('import_users') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file" accept=".xlsx, .xls, .csv">
+            <button type="submit">Import Users</button>
+
     </div>
-    <table>
+    <table id="my-table">
         <thead>
             <tr>
                 <th>ID</th>
