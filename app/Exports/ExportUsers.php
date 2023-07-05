@@ -5,7 +5,7 @@ namespace App\Exports;
 use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ExportUser implements FromCollection
+class ExportUsers implements FromCollection
 {
     public function collection()
     {

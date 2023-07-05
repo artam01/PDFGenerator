@@ -6,13 +6,14 @@
 </head>
 
 <body>
-    <h1>Users</h1>
+    <h1> Import and Export Excel and PDF </h1>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+    </head>
     <div>
-
-        /* <a href="{{ route('export_users') }}">Export Excel</a>*/
+        <a href="{{ route('export_users') }}" class="btn btn-primary">Export Excel</a>
         <a href="{{ route('export_users_pdf') }}" class="btn btn-primary">Export PDF</a>
-        <form action="{{ route('import_users') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('import_users') }}" class="btn btn-primary" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="file" name="file" accept=".xlsx, .xls, .csv">
             <button type="submit">Import Users</button>

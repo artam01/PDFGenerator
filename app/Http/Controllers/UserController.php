@@ -6,6 +6,7 @@ use App\Exports\ExportUsers;
 use App\Imports\UsersImport;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -24,16 +25,16 @@ class UserController extends Controller
         try {
             Excel::import(new UsersImport, $file);
 
-            // Optionally, you can add a success message or redirect the user to a specific page.
             return redirect()->back()->with('success', 'Users imported successfully!');
         } catch (\Exception $e) {
-            // Handle any exceptions that occur during the import process.
+
             return redirect()->back()->with('error', 'An error occurred during user import.');
         }
     }
 
     public function export_users()
     {
+        //dd('export users');
         return Excel::download(new ExportUsers(), 'users.xlsx');
     }
 
